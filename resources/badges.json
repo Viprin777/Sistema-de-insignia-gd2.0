@@ -1,0 +1,13 @@
+{
+	"badges": [
+		{ "id": "owner",       "name": "Owner",       "description": "Creador del mod y dueño del Badge System.",      "sprite": "badge-owner.png" },
+		{ "id": "admin",       "name": "Admin",       "description": "Administrador: ayuda a gestionar la comunidad.", "sprite": "badge-admin.png" },
+		{ "id": "moderator",   "name": "Moderator",   "description": "Moderador: mantiene el orden en la comunidad.", "sprite": "badge-moderator.png" },
+		{ "id": "helper",      "name": "Helper",      "description": "Ayuda a otros jugadores.",                       "sprite": "badge-helper.png" },
+		{ "id": "vip",         "name": "VIP",         "description": "Jugador VIP.",                                   "sprite": "badge-vip.png" },
+		{ "id": "contributor", "name": "Contributor", "description": "Ha contribuido al desarrollo del mod.",          "sprite": "badge-contributor.png" }
+	],
+	"users": [
+		{ "accountID": 0, "badges": ["owner"] }
+	]
+}
