@@ -1,0 +1,29 @@
+{
+	"geode": "4.2.0",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"version": "v1.0.0",
+	"id": "theviprin777.insignias-gd",
+	"name": "Badge System",
+	"developer": "TheViprin777",
+	"description": "Muestra insignias personalizadas (Owner, Admin, Moderator...) en el perfil de los jugadores.",
+	"tags": ["customization", "interface", "online"],
+	"settings": {
+		"show-badges": {
+			"type": "bool",
+			"name": "Mostrar insignias",
+			"description": "Muestra las insignias del Badge System en los perfiles.",
+			"default": true
+		},
+		"badges-url": {
+			"type": "string",
+			"name": "URL de insignias",
+			"description": "Enlace al archivo badges.json (por ejemplo, un raw de GitHub) que dice quién tiene cada insignia.",
+			"default": "https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/badges.json"
+		}
+	}
+}
