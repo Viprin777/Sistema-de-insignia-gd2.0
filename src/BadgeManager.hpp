@@ -2,6 +2,7 @@
 
 #include <Geode/Geode.hpp>
 #include <Geode/utils/web.hpp>
+#include <Geode/utils/async.hpp>
 #include <map>
 #include <string>
 #include <vector>
@@ -31,5 +32,5 @@ private:
 
 	std::map<std::string, BadgeInfo> m_definitions;
 	std::map<int, std::vector<std::string>> m_users;
-	geode::EventListener<geode::utils::web::WebTask> m_listener;
+	geode::async::TaskHolder<geode::utils::web::WebResponse> m_listener;
 };
