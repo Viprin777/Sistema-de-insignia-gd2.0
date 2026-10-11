@@ -28,7 +28,7 @@ class $modify(BadgeProfilePage, ProfilePage) {
 		if (badges.empty()) return;
 
 		for (auto const& badge : badges) {
-			auto spr = CCSprite::create(Mod::get()->expandSpriteName(badge.sprite.c_str()));
+			auto spr = CCSprite::create(Mod::get()->expandSpriteName(badge.sprite.c_str()).c_str());
 			if (!spr) continue;
 			limitNodeSize(spr, {22.f, 22.f}, 1.f, .1f);
 
