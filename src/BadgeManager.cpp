@@ -39,30 +39,28 @@ void BadgeManager::fetchRemote() {
 		return;
 	}
 
-	m_listener.bind([this](web::WebTask::Event* e) {
-		auto* res = e->getValue();
-		if (!res) return;
+	m_listener.spawn(
+		web::WebRequest().get(url),
+		[this](web::WebResponse res) {
+			if (!res.ok()) {
+				log::warn("No se pudo descargar badges.json (codigo {})", res.code());
+				return;
+			}
 
-		if (!res->ok()) {
-			log::warn("No se pudo descargar badges.json (codigo {})", res->code());
-			return;
+			auto text = res.string();
+			if (!text.isOk()) return;
+
+			auto parsed = matjson::parse(text.unwrap());
+			if (!parsed.isOk()) {
+				log::warn("badges.json remoto no es un JSON valido");
+				return;
+			}
+
+			this->parse(parsed.unwrap());
+			Mod::get()->setSavedValue<std::string>("cache", text.unwrap());
+			log::info("Insignias actualizadas desde internet");
 		}
-
-		auto text = res->string();
-		if (!text.isOk()) return;
-
-		auto parsed = matjson::parse(text.unwrap());
-		if (!parsed.isOk()) {
-			log::warn("badges.json remoto no es un JSON valido");
-			return;
-		}
-
-		this->parse(parsed.unwrap());
-		Mod::get()->setSavedValue<std::string>("cache", text.unwrap());
-		log::info("Insignias actualizadas desde internet");
-	});
-
-	m_listener.setFilter(web::WebRequest().get(url));
+	);
 }
 
 void BadgeManager::parse(matjson::Value const& json) {
