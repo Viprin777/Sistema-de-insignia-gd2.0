@@ -8,6 +8,6 @@
 		{ "id":38893119 "contributor", "name": "Contributor", "description": "Ha contribuido al desarrollo del mod.",          "sprite": "badge-contributor.png" }
 	],
 	"users": [
-		{ "accountID": 0, "badges": ["owner"] }
+		{ "accountID": 38893119, "badges": ["owner"] }
 	]
 }
